@@ -16,3 +16,12 @@
 h3 {
     margin-bottom: 0;
 }
+
+#splash-bar {
+    background-color: white;
+    height: 20rem;
+    opacity: 0.5;
+    padding-left: 0;
+    text-align: center;
+}
+
