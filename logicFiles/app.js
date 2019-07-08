@@ -108,18 +108,21 @@
 
 $(document).on("click", ".mood-button", function(playlist){
     playlist.preventDefault();
-//     // Clear any previous gifs.
+
     // $(".mood-button").empty();
     var apiKey = "9Ava0NGUIwM3dsiyal9TG4fQF74ykDqb";
-    var genre = "pop";
-    var zipCode = "19104"
+    var genre = "rap";
+    // var zipCode = "19123"
+    var city = "philadelphia";
+    var startTime = "2019-07-10";
+
     $.ajax({
         type:"GET",
-        url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + genre + "&postalCode=" + zipCode + "&apikey=" + apiKey,
+        url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + genre + "&sort=date,asc&city=" + city + "&apikey=" + apiKey,
         async:true,
         dataType: "json",
         success: function(json) {
-                    console.log(json._embedded);
+                    console.log(json._embedded.events);
                     // Parse the response.
                     // Do other things.
                  },
