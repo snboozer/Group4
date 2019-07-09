@@ -31,7 +31,12 @@
 
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link rel="icon" type="image/png" href="images/favicon.ico">
+  <!-- <link rel="icon" type="image/png" href="images/favicon.ico"> -->
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 
 </head>
 
@@ -55,27 +60,54 @@
 
     </div>
     <div class="hidden" id="moods">
-
-      <button class="mood-button" id="upbeat">Upbeat</button>
-      <button class="mood-button" id="chill">Chill</button>
-      <button class="mood-button" id="Aggro">Aggro</button>
-
+      <form id='genreBtns'>
+        <button class="mood-button" id="upbeat">Upbeat</button>
+        <button class="mood-button" id="chill">Chill</button>
+        <button class="mood-button" id="Aggro">Aggro</button>
+      </form>
       <!-- Here is where api content will be displayed -->
       <div class="row">
         <div class="eight-columns" id="content-holder"></div>
       </div>
     </div>
 
-    <!-- Javascript Files -->
-    <!-- Uncompressed jQuery file for development -->
-    <script src="logicFiles/jQuery.js"></script>
+    <form id="user-city">
+      <label for="cityInput">Enter City Here</label>
+      <input type="text" id="cityInput">
+      <button type="submit" id="cityBtn">click Me</button>
+    </form>
+  </div>
 
-    <!-- moment.js cdn -->
-    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <!-- Javascript Files -->
+  <!-- Uncompressed jQuery file for development -->
+  <!-- <script src="logicFiles/jQuery.js"></script> -->
 
-    <script src="logicFiles/app.js"></script>
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 
-    <!-- End Document
+  <!-- moment.js cdn -->
+  <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
+
+  <script src="logicFiles/app.js"></script>
+  <!-- <script>
+      $(document).on("click", "#cityBtn", function (event) {
+        event.preventDefault();
+        var city = $("#cityInput").val().trim();
+        console.log(city)
+
+        $.ajax({
+            url:"https://developers.zomato.com/api/v2.1/cities?q=" + city,
+            type: "GET",
+            headers: {
+                "user-key": "cf48117b55f3fd5be39bd68e58889b30",
+            }
+        }).then(function (response) {
+            console.log(response);
+        });
+    })
+  </script> -->
+
+  <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 
