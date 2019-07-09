@@ -1,37 +1,42 @@
-// Note: soundcloud is not accepting new apps, must use different music api.
+// ticketmaster api key format//
+// https://app.ticketmaster.com/{package}/{version}/{resource}.json?apikey=**{API key} //
+// https://app.ticketmaster.com/discovery/v2/{resource}.json?apikey=**{API key}
 
+$(document).on("click", ".mood-button", function(playlist){
+    playlist.preventDefault();
 
-// spotify sdk
-// window.onSpotifyWebPlaybackSDKReady = () => {
-//     const token = 'BQCb-cTDOW25PHdZlQ8eUwcvtvW71AKkgW2asjFXNan9ByjUYq4rpKSrlFEAS-yZHQmyDwNTpMtgS6OZC1upFjN5zeGBHJpRjOH7fkALtFW35x50juRvLPOqkjY8lOkHDSqm0VIpz1yyfCJjy-DapII-xZpL_DZW1_CRU3u11WdZ8kzdsnoRg9i9';
-//     const player = new Spotify.Player({
-//       name: 'Web Playback SDK Quick Start Player',
-//       getOAuthToken: cb => { cb(token); }
-//     });
-  
-//     // Error handling
-//     player.addListener('initialization_error', ({ message }) => { console.error(message); });
-//     player.addListener('authentication_error', ({ message }) => { console.error(message); });
-//     player.addListener('account_error', ({ message }) => { console.error(message); });
-//     player.addListener('playback_error', ({ message }) => { console.error(message); });
-  
-//     // Playback status updates
-//     player.addListener('player_state_changed', state => { console.log(state); });
-  
-//     // Ready
-//     player.addListener('ready', ({ device_id }) => {
-//       console.log('Ready with Device ID', device_id);
-//     });
-  
-//     // Not Ready
-//     player.addListener('not_ready', ({ device_id }) => {
-//       console.log('Device ID has gone offline', device_id);
-//     });
-  
-//     // Connect to the player!
-//     player.connect();
-//   };
+    // $(".mood-button").empty();
+    var apiKey = "9Ava0NGUIwM3dsiyal9TG4fQF74ykDqb";
+    var genre = "rap";
+    // var zipCode = "19123"
+    var city = "philadelphia";
+    var currentTime = moment.js;
 
+    // ticketmaster api date format e.g.
+    // dateTime: "2019-07-07T00:00:00Z"
+    
+    $.ajax({
+        type:"GET",
+        url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + genre + "&startDateTime=2019-07-09T00:00:00Z&sort=date,asc&city=" + city + "&apikey=" + apiKey,
+        async:true,
+        dataType: "json",
+        success: function(json) {
+                    console.log(json._embedded.events);
+                    // Parse the response.
+                    // Do other things.
+                    // for (var i = 0; i < 5; i++){
+                    //     $("#content-holder").text(json._embedded.events[i].name);
+                    // }  
+                    $("#content-holder").text(json._embedded.events[0].name);  
+                    $("#content-holder").text(json._embedded.events[1].name);
+                    $("#content-holder").text(json._embedded.events[2].name);      
+                 },
+        error: function(xhr, status, err) {
+                    // This time, we do not end up here!
+                 }
+      });
+    });
+    
 // NAPSTER PLAYER //
 
 // Napster.init({
@@ -102,51 +107,3 @@
 // Napster.player.on('error', function(e) {
 //   console.log(e.data);
 // });
-// ticketmaster api key format//
-// https://app.ticketmaster.com/{package}/{version}/{resource}.json?apikey=**{API key} //
-// https://app.ticketmaster.com/discovery/v2/{resource}.json?apikey=**{API key}
-
-$(document).on("click", ".mood-button", function(playlist){
-    playlist.preventDefault();
-
-    // $(".mood-button").empty();
-    var apiKey = "9Ava0NGUIwM3dsiyal9TG4fQF74ykDqb";
-    var genre = "rap";
-    // var zipCode = "19123"
-    var city = "philadelphia";
-    var startTime = "2019-07-10";
-
-    $.ajax({
-        type:"GET",
-        url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + genre + "&sort=date,asc&city=" + city + "&apikey=" + apiKey,
-        async:true,
-        dataType: "json",
-        success: function(json) {
-                    console.log(json._embedded.events);
-                    // Parse the response.
-                    // Do other things.
-                 },
-        error: function(xhr, status, err) {
-                    // This time, we do not end up here!
-                 }
-      });
-    });
-    
-//     // var genre = $(this).text().toLowerCase();
-//     // console.log(genre);
-//     // var queryURL = "https://api.napster.com/v2.1/tracks/top?apikey=Y2FkNWYzNTMtOWY5My00MjMwLTk4MGMtNzU2MTcxYThkNjkx"
-    
-//     var queryURL = "https://cors-anywhere.herokuapp.com/https://api.deezer.com/playlist/4341978/tracks?limit=2"
-
-//     $.ajax({
-//         url: queryURL,
-//         method: "GET"
-//     }).then(function(response){
-//         var apiResults = response.data[0].preview;
-//         console.log(apiResults);
-//         $("#audio-player").attr("src", apiResults);
-//         // for (var i = 0; i < apiResults.length; i++);
-//         // console.log(apiResults[i]);
-//     })
-// })
-
