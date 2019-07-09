@@ -47,8 +47,5 @@ $(document).on("click", ".mood-button", function(playlist){
                         $("#content-holder").append($(contentBox));    
                  };
         },
-        error: function(xhr, status, err) {
-                    // This time, we do not end up here!
-                 }
-      });
-    });
+
+
