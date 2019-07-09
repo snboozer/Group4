@@ -18,10 +18,19 @@ h3 {
 }
 
 #splash-bar {
+    display: grid;
+    /* justify-content: center; */
     background-color: white;
-    height: 20rem;
+    height: 18rem;
     opacity: 0.5;
     padding-left: 0;
     text-align: center;
+}
+
+#moods {
+    display: grid;
+    height: 8rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
