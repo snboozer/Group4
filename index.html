@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Basic Page Needs
@@ -15,11 +16,7 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Barriecito&display=swap" rel="stylesheet"> -->
-
-  <link href="https://fonts.googleapis.com/css?family=Barriecito|Raleway&display=swap" rel="stylesheet">
-
-  <!-- <link href="fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"> -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -33,54 +30,49 @@
   <link rel="icon" type="image/png" href="images/favicon.ico">
 
 </head>
+
 <body>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
     <div class="row">
-
-      <div class="one-half column" style="margin-top: 10%">
-
+      <div class="one-half column" style="margin-top: 5%">
         <h3>mudio</h3>
         <p>how you feelin?</a></p>
         <div id="button-holder"></div>
-        <!-- <audio controls>
-          <source id="audio-player" src="" type="audio/mpeg">
-        
-        </audio> -->
       </div>
     </div>
-    
+
+
+  </div>
+  <div class="row" id="splash-bar">
+    <div class="four-columns">
 
     </div>
-    <div class="row" id="splash-bar">
-        <div class="four-columns">
-          
-          </div>
-      <div class="hidden" id="moods">
-        
-        <button class="mood-button" id="upbeat">Upbeat</button>
-        <button class="mood-button" id="chill">Chill</button>
-        <button class="mood-button" id="Aggro">Aggro</button>
+    <div class="hidden" id="moods">
 
-        </div>
-        <div id="player"></div>
+      <button class="mood-button" id="upbeat">Upbeat</button>
+      <button class="mood-button" id="chill">Chill</button>
+      <button class="mood-button" id="Aggro">Aggro</button>
+
+      <!-- Here is where api content will be displayed -->
+      <div class="row">
+        <div class="eight-columns" id="content-holder"></div>
       </div>
     </div>
-  </div> 
 
-  <!-- Javascript Files -->
-  <!-- Uncompressed jQuery file for development -->
-  <script src="logicFiles/jQuery.js"></script>
-  
-  <!-- moment.js cdn -->
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <!-- Javascript Files -->
+    <!-- Uncompressed jQuery file for development -->
+    <script src="logicFiles/jQuery.js"></script>
 
-  <script src="logicFiles/app.js"></script>
+    <!-- moment.js cdn -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
+    <script src="logicFiles/app.js"></script>
 
-<!-- End Document
+    <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+
 </html>
