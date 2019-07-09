@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <!-- Basic Page Needs
@@ -38,47 +39,49 @@
   crossorigin="anonymous"></script>
 
 </head>
+
 <body>
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="container">
     <div class="row">
-
-      <div class="one-half column" style="margin-top: 10%">
-
+      <div class="one-half column" style="margin-top: 5%">
         <h3>mudio</h3>
         <p>how you feelin?</a></p>
         <div id="button-holder"></div>
       </div>
     </div>
-    
+
+
+  </div>
+  <div class="row" id="splash-bar">
+    <div class="four-columns">
 
     </div>
-    <div class="row" id="splash-bar">
-        <div class="four-columns">
-          
-          </div>
-      <div class="hidden" id="moods">
-        <form id="form" action="">
-          <button class="mood-button" id="upbeat">Upbeat</button>
+    <div class="hidden" id="moods">
+      <form id='genreBtns'>
+        <button class="mood-button" id="upbeat">Upbeat</button>
         <button class="mood-button" id="chill">Chill</button>
         <button class="mood-button" id="Aggro">Aggro</button>
-        </form>
-        
-        </div>
-
-        <div class="here"></div>
+      </form>
+      <!-- Here is where api content will be displayed -->
+      <div class="row">
+        <div class="eight-columns" id="content-holder"></div>
+      </div>
     </div>
-  </div>
 
-  <!-- Javascript Files -->
-  <!-- Uncompressed jQuery file for development -->
-  <!-- <script src="logicFiles/jQuery.js"></script> -->
+    <!-- Javascript Files -->
+    <!-- Uncompressed jQuery file for development -->
+    <script src="logicFiles/jQuery.js"></script>
 
-  <script src="logicFiles/app.js"></script>
+    <!-- moment.js cdn -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
-<!-- End Document
+    <script src="logicFiles/app.js"></script>
+
+    <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
+
 </html>
