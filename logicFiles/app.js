@@ -5,7 +5,7 @@
 $(document).on("click", ".mood-button", function(playlist){
     playlist.preventDefault();
 
-    // $(".mood-button").empty();
+    $("#content-holder").empty();
     var apiKey = "9Ava0NGUIwM3dsiyal9TG4fQF74ykDqb";
     var genre = "rap";
     // var zipCode = "19123"
@@ -14,6 +14,7 @@ $(document).on("click", ".mood-button", function(playlist){
 
     // ticketmaster api date format e.g.
     // dateTime: "2019-07-07T00:00:00Z"
+    
     
     $.ajax({
         type:"GET",
@@ -24,13 +25,13 @@ $(document).on("click", ".mood-button", function(playlist){
                     console.log(json._embedded.events);
                     // Parse the response.
                     // Do other things.
-                    // for (var i = 0; i < 5; i++){
-                    //     $("#content-holder").text(json._embedded.events[i].name);
-                    // }  
-                    $("#content-holder").text(json._embedded.events[0].name);  
-                    $("#content-holder").text(json._embedded.events[1].name);
-                    $("#content-holder").text(json._embedded.events[2].name);      
-                 },
+                    for (var i = 0; i < 5; i++){
+                        var contentBox = document.createElement("div");
+                        contentBox.classList.add("TM-content");
+                        contentBox.innerHTML = json._embedded.events[i].name;
+                        $("#content-holder").append($(contentBox));    
+                 };
+        },
         error: function(xhr, status, err) {
                     // This time, we do not end up here!
                  }
