@@ -16,7 +16,11 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Barriecito&display=swap" rel="stylesheet"> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Barriecito|Raleway&display=swap" rel="stylesheet">
+
+  <!-- <link href="fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"> -->
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -28,6 +32,11 @@
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <!-- <link rel="icon" type="image/png" href="images/favicon.ico"> -->
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 
 </head>
 
@@ -51,11 +60,11 @@
 
     </div>
     <div class="hidden" id="moods">
-
-      <button class="mood-button" id="upbeat">Upbeat</button>
-      <button class="mood-button" id="chill">Chill</button>
-      <button class="mood-button" id="Aggro">Aggro</button>
-
+      <form id='genreBtns'>
+        <button class="mood-button" id="upbeat">Upbeat</button>
+        <button class="mood-button" id="chill">Chill</button>
+        <button class="mood-button" id="Aggro">Aggro</button>
+      </form>
       <!-- Here is where api content will be displayed -->
       <div class="row">
         <div class="eight-columns" id="content-holder"></div>
