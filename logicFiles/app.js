@@ -1,7 +1,7 @@
 
 
 $(document).ready(function() {
-    
+
 var uBeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['rnb', 'classical', 'jazz'];
 var aggro = ['metal', 'punk'];
@@ -121,4 +121,35 @@ $(document).on("click", ".mood-button", function (playlist) {
         }).then(function (response) {
             console.log(response);
         });
-    });
+
+    })
+    // $.ajax({
+    //     type:"GET",
+    //     url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + genre + "&startDateTime=2019-07-09T00:00:00Z&sort=date,asc&city=" + city + "&apikey=" + apiKey,
+    //     async:true,
+    //     dataType: "json",
+    //     success: function(json) {
+    //                 console.log(json._embedded.events);
+    //                 // Parse the response.
+    //                 // Do other things.
+
+    //                 // Create divs dynamically to hold api information.
+    //                 for (var i = 0; i < 5; i++){
+    //                     // Create 5 new divs.
+    //                     var contentBox = document.createElement("div");
+    //                     // Give them a class attribute "TM-content".
+    //                     contentBox.classList.add("TM-content");
+    //                     // Assign the name information from api to each <div class="TM-content"></div>.
+    //                     contentBox.innerHTML = json._embedded.events[i].name;
+    //                     // Append newly created divs to content-holder div.
+    //                     $("#content-holder").append($(contentBox));    
+    //              };
+    //     },
+
+    //     error: function(xhr, status, err) {
+    //         // This time, we do not end up here!
+    //      }
+
+
+    // });
+});
