@@ -1,7 +1,7 @@
 
 
 $(document).ready(function() {
-<<<<<<< HEAD
+    
 var uBeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['rnb', 'classical', 'jazz'];
 var aggro = ['metal', 'punk'];
