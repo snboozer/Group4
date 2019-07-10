@@ -64,17 +64,20 @@ $(document).on("click", ".keyword", function (playlist) {
     var state = "pa"
 
     // moment.js calculations to be added so ticketmaster will only return future events.
-    // var currentTime = moment.js;
+    var currentTime = moment();
+    
+    var date = currentTime.format("YYYY-MM-DD");
+    
 
     // ticketmaster api date format e.g.
-    // dateTime: "2019-07-07T00:00:00Z"
+    // dateTime: "2019-07-15T00:00:00Z"
 
     // Ajax function taken from ticketmaster documentation https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/#search-events-v2
 
 
     $.ajax({
         type: "GET",
-        url: "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + genre + "&sort=date,asc&city=" + city + "&stateCode=" + state + "&apikey=" + apiKey,
+        url: "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + genre + "&startDateTime=" + date + "T00:00:00Z&sort=date,asc&city=" + city + "&stateCode=" + state + "&apikey=" + apiKey,
 
         async: true,
         dataType: "json",

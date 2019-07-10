@@ -16,11 +16,8 @@
 
   <!-- FONT
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <!-- <link href="https://fonts.googleapis.com/css?family=Barriecito&display=swap" rel="stylesheet"> -->
 
   <link href="https://fonts.googleapis.com/css?family=Barriecito|Raleway&display=swap" rel="stylesheet">
-
-  <!-- <link href="fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css"> -->
 
   <!-- CSS
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -32,16 +29,6 @@
   <!-- Favicon
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.ico">
-
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
 
 </head>
 
@@ -71,7 +58,7 @@
         <button class="mood-button" id="Aggro">Aggro</button>
       </form>
       <!-- Here is where api content will be displayed -->
-      
+
     </div>
 
     <form id="user-city">
@@ -85,33 +72,16 @@
   </div>
 
   <!-- Javascript Files -->
-  <!-- Uncompressed jQuery file for development -->
-  <!-- <script src="logicFiles/jQuery.js"></script> -->
 
-  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 
   <!-- moment.js cdn -->
-  <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
   <script src="logicFiles/app.js"></script>
-  <!-- <script>
-      $(document).on("click", "#cityBtn", function (event) {
-        event.preventDefault();
-        var city = $("#cityInput").val().trim();
-        console.log(city)
-
-        $.ajax({
-            url:"https://developers.zomato.com/api/v2.1/cities?q=" + city,
-            type: "GET",
-            headers: {
-                "user-key": "cf48117b55f3fd5be39bd68e58889b30",
-            }
-        }).then(function (response) {
-            console.log(response);
-        });
-    })
-  </script> -->
 
   <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
