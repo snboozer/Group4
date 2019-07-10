@@ -1,15 +1,9 @@
 
 
 $(document).ready(function() {
-<<<<<<< HEAD
 var uBeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['rnb', 'classical', 'jazz'];
 var aggro = ['metal', 'punk'];
-=======
-var uBeat = ['rap', 'dance', 'rock'];
-var chill = ['rnb', 'classical', 'pop'];
-var aggro = ['heavy metal', 'punk', 'dance'];
->>>>>>> master
 
 $('.mood-button').on('click', function(e) {
     e.preventDefault();
@@ -25,7 +19,6 @@ $('.mood-button').on('click', function(e) {
         buttonsToShow = aggro
     };
 
-<<<<<<< HEAD
     for(var j = 0; j < buttonsToShow.length; j++) {
         var btn2 = $("<button>");
         btn2.text(buttonsToShow[j]);
@@ -35,15 +28,6 @@ $('.mood-button').on('click', function(e) {
         $('#genreBtns').append(btn2);
         $('.mood-button').hide(500);
         // $('.beat').hide(500);
-=======
-    for(var j = 0; j < chill.length; j++) {
-        var btn2 = $("<button>");
-        btn2.text(buttonsToShow[j]);
-        btn2.addClass('chilling');
-        $('#genreBtns').append(btn2);
-        $('.mood-button').hide(500);
-        $('.beat').hide(500);
->>>>>>> master
 
     };
     
@@ -165,4 +149,4 @@ $(document).on("click", ".mood-button", function (playlist) {
     // });
 });
 
-});
+
