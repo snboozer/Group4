@@ -1,6 +1,5 @@
 
 
-$(document).ready(function() {
     
 var uBeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['rnb', 'classical', 'jazz'];
@@ -61,7 +60,7 @@ $(document).on("click", ".mood-button", function (playlist) {
     var city = "philadelphia";
 
     // moment.js calculations to be added so ticketmaster will only return future events.
-    var currentTime = moment.js;
+    // var currentTime = moment.js;
 
     // ticketmaster api date format e.g.
     // dateTime: "2019-07-07T00:00:00Z"
