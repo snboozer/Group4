@@ -2,7 +2,7 @@
 
     
 var uBeat = ['rap', 'dance', 'rock', 'pop'];
-var chill = ['rnb', 'classical', 'jazz'];
+var chill = ['r&b', 'classical', 'jazz'];
 var aggro = ['metal', 'punk'];
 
 
@@ -44,9 +44,9 @@ $('.mood-button').on('click', function(e) {
 // https://app.ticketmaster.com/{package}/{version}/{resource}.json?apikey=**{API key} //
 // https://app.ticketmaster.com/discovery/v2/{resource}.json?apikey=**{API key}
 
-$(document).on("click", ".mood-button", function (playlist) {
+$(document).on("click", ".keyword", function (playlist) {
     playlist.preventDefault();
-
+    console.log(playlist.target.id);
     // Empty content holder so it doesn't repeat on button clicks.
     $("#content-holder").empty();
 
@@ -54,7 +54,7 @@ $(document).on("click", ".mood-button", function (playlist) {
     var apiKey = "9Ava0NGUIwM3dsiyal9TG4fQF74ykDqb";
 
     // Keywords variable for api request
-    var genre = "rap";
+    var genre = playlist.target.id;
 
     // City variable for request, user will have to input a city for this to work
     var city = "philadelphia";
