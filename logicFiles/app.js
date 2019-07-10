@@ -49,6 +49,8 @@ $(document).on("click", ".keyword", function (playlist) {
     console.log(playlist.target.id);
     // Empty content holder so it doesn't repeat on button clicks.
     $("#content-holder").empty();
+    // $('.keyword').hide(500);
+
 
     // Ticketmaster api key for the project
     var apiKey = "9Ava0NGUIwM3dsiyal9TG4fQF74ykDqb";
@@ -59,6 +61,8 @@ $(document).on("click", ".keyword", function (playlist) {
     // City variable for request, user will have to input a city for this to work
     var city = "philadelphia";
 
+    var state = "pa"
+
     // moment.js calculations to be added so ticketmaster will only return future events.
     // var currentTime = moment.js;
 
@@ -67,20 +71,10 @@ $(document).on("click", ".keyword", function (playlist) {
 
     // Ajax function taken from ticketmaster documentation https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/#search-events-v2
 
-    // $.ajax({
-    //     type:"GET",
-    //     url:"https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + genre + "&startDateTime=2019-07-09T00:00:00Z&sort=date,asc&city=" + city + "&apikey=" + apiKey,
-
-    // // $(".mood-button").empty();
-    // var apiKey = "9Ava0NGUIwM3dsiyal9TG4fQF74ykDqb";
-    // var genre = "rap";
-    // // var zipCode = "19123"
-    // var city = "philadelphia";
-    // var startTime = "2019-07-10";
 
     $.ajax({
         type: "GET",
-        url: "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + genre + "&sort=date,asc&city=" + city + "&apikey=" + apiKey,
+        url: "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + genre + "&sort=date,asc&city=" + city + "&stateCode=" + state + "&apikey=" + apiKey,
 
         async: true,
         dataType: "json",
@@ -112,7 +106,7 @@ $(document).on("click", ".keyword", function (playlist) {
         console.log(city)
 
         $.ajax({
-            url:"https://developers.zomato.com/api/v2.1/cities?q=" + city,
+            url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/cities?q=" + city,
             type: "GET",
             headers: {
                 "user-key": "cf48117b55f3fd5be39bd68e58889b30",
