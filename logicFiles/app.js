@@ -1,9 +1,60 @@
 
 
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyAQ9upIsSCFqMlxzM2uWqjBMxUTHRtZOMg",
+    authDomain: "fir-58006.firebaseapp.com",
+    databaseURL: "https://fir-58006.firebaseio.com",
+    projectId: "fir-58006",
+    storageBucket: "fir-58006.appspot.com",
+    messagingSenderId: "1033199777878",
+    appId: "1:1033199777878:web:e23d3e8896a47a6a"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+var email;
+var password;
+var city; 
+console.log(city);
+var state; 
+console.log(state);
+
+$("#submit").click(function (event) {
+    event.preventDefault()
+    var User = {
+        email: $("#email").val().trim(),
+        password: $("#password").val().trim(),
+        city: $("#city").val().trim(),
+        state: $("#state").val().trim(),
+    }
+    database.ref().push(User)
+    $("#email").val("")
+    $("#password").val("")
+    $("#city").val("")
+    $("#state").val("")
+    // console.log(User)
+});
+
+$('#form').on('submit', function(e) {
+    e.preventDefault()
+    email = $('#email').val().trim();
+    password = $('#password').val().trim();
+    // change .shownFirst
+    submitted = $('.shownFirst');
+    submitted.hide();
+    hidden = $('.hidden').show();
+    city = $('#city').val().trim();
+    console.log(city); 
+    state = $('#state').val().trim();
+    console.log(state);
+});
     
 var uBeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['r&b', 'classical', 'jazz'];
 var aggro = ['metal', 'punk'];
+
 
 
 $('.mood-button').on('click', function(e) {
@@ -38,10 +89,10 @@ $('.mood-button').on('click', function(e) {
 
 
 var lat = [];
-    console.log(lat);
+console.log(lat);
                
-    var long = [];
-    console.log(long);
+var long = [];
+console.log(long);
 
 
 // ticketmaster api key format//
@@ -62,10 +113,10 @@ $(document).on("click", ".keyword", function (playlist) {
     // Keywords variable for api request
     var genre = playlist.target.id;
 
-    // City variable for request, user will have to input a city for this to work
-    var city = "philadelphia";
+    // // City variable for request, user will have to input a city for this to work
+    // var city = "philadelphia";
 
-    var state = "pa"
+    // var state = "pa"
 
     // moment.js calculations to be added so ticketmaster will only return future events.
     var currentTime = moment();
@@ -106,7 +157,7 @@ $(document).on("click", ".keyword", function (playlist) {
                 // Assign the name information from api to each <div class="TM-content"></div>.
                 contentBox.innerHTML = json._embedded.events[i].name;
                 // Append newly created divs to content-holder div.
-                $("#content-holder").append($(contentBox));
+                $("#event-display").append($(contentBox));
             };
             
         
@@ -118,7 +169,7 @@ $(document).on("click", ".keyword", function (playlist) {
 
 $(document).on( "click", ".TM-content", function (event) {
     event.preventDefault();
-    
+
     var latLongIndex = $(this).val();
     console.log(lat[latLongIndex]);
     console.log(long[latLongIndex]);
