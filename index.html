@@ -33,15 +33,11 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <link rel="icon" type="image/png" href="images/favicon.ico">
 
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
-  <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -65,36 +61,36 @@
 
     </div>
     <div class="hidden" id="moods">
-      <form id='genreBtns'>
-        <button class="mood-button" id="upbeat">Upbeat</button>
-        <button class="mood-button" id="chill">Chill</button>
-        <button class="mood-button" id="Aggro">Aggro</button>
+      <form id="form" action="">
+        <input class="shownFirst" type="email" name="email" id="email" placeholder="Enter Email">
+        <input class="shownFirst" type="password" id="password" name="state" placeholder="Enter Password">
+        <input class="shownFirst" type="text" id="city" name="city" placeholder="Enter City"> <br>
+        <input class="shownFirst" type="text" id="state" name="state" placeholder="Enter State">
+        <button class="shownFirst" id='submitButton' type="submit">Submit</button>
+
+        <div id='genreBtns' class="hidden">
+          <button class="mood-button" id="upbeat">Upbeat</button>
+          <button class="mood-button" id="chill">Chill</button>
+          <button class="mood-button" id="Aggro">Aggro</button>
+        </div>
+
       </form>
-      <!-- Here is where api content will be displayed -->
-      <div class="row">
-        <div class="eight-columns" id="content-holder"></div>
-      </div>
+      
+
     </div>
 
-    <form id="user-city">
-      <label for="cityInput">Enter City Here</label>
-      <input type="text" id="cityInput">
-      <button type="submit" id="cityBtn">click Me</button>
-    </form>
-  </div>
+    <!-- Javascript Files -->
+    <!-- Uncompressed jQuery file for development -->
+    <!-- <script src="logicFiles/jQuery.js"></script> -->
 
-  <!-- Javascript Files -->
-  <!-- Uncompressed jQuery file for development -->
-  <!-- <script src="logicFiles/jQuery.js"></script> -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
 
-  <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <!-- moment.js cdn -->
+    <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
 
-  <!-- moment.js cdn -->
-  <!-- <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> -->
-
-  <script src="logicFiles/app.js"></script>
-  <!-- <script>
+    <script src="logicFiles/app.js"></script>
+    <!-- <script>
       $(document).on("click", "#cityBtn", function (event) {
         event.preventDefault();
         var city = $("#cityInput").val().trim();
@@ -112,7 +108,7 @@
     })
   </script> -->
 
-  <!-- End Document
+    <!-- End Document
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 </body>
 

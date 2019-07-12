@@ -5,8 +5,25 @@ $(document).ready(function() {
 var uBeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['rnb', 'classical', 'jazz'];
 var aggro = ['metal', 'punk'];
+var email;
+var city; 
+var state; 
+var password;
 
 
+$('#form').on('submit', function(e) {
+    e.preventDefault()
+    var email = $('#email').val().trim();
+    var password = $('#password').val().trim();
+    var submitted = $('.shownFirst');
+    submitted.hide();
+    var hidden = $('.hidden').show();
+    var city = $('#city').val().trim();
+    var state = $('#state').val().trim();
+    
+
+    
+});
 $('.mood-button').on('click', function(e) {
     e.preventDefault();
     console.log(e.target.textContent);
