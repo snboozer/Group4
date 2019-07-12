@@ -37,7 +37,11 @@ $('.mood-button').on('click', function(e) {
 })
 
 
-
+var lat = [];
+    console.log(lat);
+               
+    var long = [];
+    console.log(long);
 
 
 // ticketmaster api key format//
@@ -73,11 +77,7 @@ $(document).on("click", ".keyword", function (playlist) {
     // dateTime: "2019-07-15T00:00:00Z"
 
     // Ajax function taken from ticketmaster documentation https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/#search-events-v2
-    var lat = [];
-    console.log(lat);
-               
-    var long = [];
-    console.log(long);
+    
 
     $.ajax({
         type: "GET",
@@ -108,26 +108,28 @@ $(document).on("click", ".keyword", function (playlist) {
                 // Append newly created divs to content-holder div.
                 $("#content-holder").append($(contentBox));
             };
+            
+        
         },
     })
 
 })
 
 
-    $(document).on( "click", ".TM-content", function (event) {
-        event.preventDefault();
-        // var city = $("#cityInput").val().trim();
-        // console.log(city)
-        var latLongIndex = $(this).val();
-        console.log(latLongIndex);
-
-        // $.ajax({
-        //     url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/cities?q=" + city,
-        //     type: "GET",
-        //     headers: {
-        //         "user-key": "cf48117b55f3fd5be39bd68e58889b30",
-        //     }
-        // }).then(function (response) {
-        //     console.log(response);
-        // });
+$(document).on( "click", ".TM-content", function (event) {
+    event.preventDefault();
+    
+    var latLongIndex = $(this).val();
+    console.log(lat[latLongIndex]);
+    console.log(long[latLongIndex]);
+    $.ajax({
+        url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[latLongIndex] + "&lon=" + long[latLongIndex] + "&radius=500&sort=rating",
+        type: "GET",
+        headers: {
+            "user-key": "cf48117b55f3fd5be39bd68e58889b30",
+        }
+    }).then(function (response) {
+        console.log(response);
     });
+});
+    
