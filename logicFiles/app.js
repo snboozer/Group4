@@ -73,7 +73,11 @@ $(document).on("click", ".keyword", function (playlist) {
     // dateTime: "2019-07-15T00:00:00Z"
 
     // Ajax function taken from ticketmaster documentation https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/#search-events-v2
-
+    var lat = [];
+    console.log(lat);
+               
+    var long = [];
+    console.log(long);
 
     $.ajax({
         type: "GET",
@@ -88,8 +92,14 @@ $(document).on("click", ".keyword", function (playlist) {
 
             // Create divs dynamically to hold api information.
             for (var i = 0; i < 5; i++) {
+                // Get latitude and longitude from event and push to lat and long arrays.
+                lat.push(json._embedded.events[i]._embedded.venues[0].location.latitude);
+                
+                long.push(json._embedded.events[i]._embedded.venues[0].location.longitude);
+
                 // Create 5 new divs.
                 var contentBox = document.createElement("div");
+                $(contentBox).attr("value", i);
                 // Give them a class attribute "TM-content".
                 contentBox.classList.add("TM-content");
                 // Assign the name information from api to each <div class="TM-content"></div>.
@@ -103,10 +113,12 @@ $(document).on("click", ".keyword", function (playlist) {
 })
 
 
-    $(document).on("click", "#cityBtn", function (event) {
+    $(".content-holder").on("click", function (event) {
         event.preventDefault();
         var city = $("#cityInput").val().trim();
         console.log(city)
+        var latLongIndex = $(".content-holder").val();
+        console.log(latLongIndex);
 
         $.ajax({
             url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/cities?q=" + city,
