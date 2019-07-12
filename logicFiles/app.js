@@ -98,8 +98,9 @@ $(document).on("click", ".keyword", function (playlist) {
                 long.push(json._embedded.events[i]._embedded.venues[0].location.longitude);
 
                 // Create 5 new divs.
-                var contentBox = document.createElement("div");
-                $(contentBox).attr("value", i);
+                var contentBox = document.createElement("button");
+                // $(contentBox).attr("value", i);
+                $(contentBox).val(i)
                 // Give them a class attribute "TM-content".
                 contentBox.classList.add("TM-content");
                 // Assign the name information from api to each <div class="TM-content"></div>.
@@ -113,20 +114,20 @@ $(document).on("click", ".keyword", function (playlist) {
 })
 
 
-    $(".content-holder").on("click", function (event) {
+    $(document).on( "click", ".TM-content", function (event) {
         event.preventDefault();
-        var city = $("#cityInput").val().trim();
-        console.log(city)
-        var latLongIndex = $(".content-holder").val();
+        // var city = $("#cityInput").val().trim();
+        // console.log(city)
+        var latLongIndex = $(this).val();
         console.log(latLongIndex);
 
-        $.ajax({
-            url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/cities?q=" + city,
-            type: "GET",
-            headers: {
-                "user-key": "cf48117b55f3fd5be39bd68e58889b30",
-            }
-        }).then(function (response) {
-            console.log(response);
-        });
+        // $.ajax({
+        //     url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/cities?q=" + city,
+        //     type: "GET",
+        //     headers: {
+        //         "user-key": "cf48117b55f3fd5be39bd68e58889b30",
+        //     }
+        // }).then(function (response) {
+        //     console.log(response);
+        // });
     });
