@@ -67,9 +67,8 @@ function moodButtonCreate() {
         moodButton.addClass("mood-button");
         $(moodButton).attr('id', moods[i]);
         $('#genreBtns').append(moodButton);
-
-    }
-}
+    };
+};
 
 
 $(document).on('click', '.mood-button', function(e) {
@@ -99,6 +98,10 @@ $(document).on('click', '.mood-button', function(e) {
     $('#genreBtns').append(backButton);
 });
 
+$(backButton).on('click', function(reset){
+    $('#genreBtns').empty();
+    moodButtonCreate();
+});
 
 var lat = [];
 // console.log(lat);
