@@ -93,7 +93,6 @@ $(document).on('click', '.mood-button', function(e) {
 $(document).on('click', '#back', function(reset) {
     $('#moods').empty();
     $('#event-display').empty();
-
     moodButtonCreate();
 });
 
