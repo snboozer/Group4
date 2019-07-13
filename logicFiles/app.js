@@ -51,7 +51,7 @@ $('#form').on('submit', function(e) {
     console.log(state);
 });
     
-var uBeat = ['rap', 'dance', 'rock', 'pop'];
+var upbeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['r&b', 'classical', 'jazz'];
 var aggro = ['metal', 'punk'];
 
@@ -66,7 +66,7 @@ $('.mood-button').on('click', function(e) {
     if (buttonClicked === 'Chill') {
         buttonsToShow = chill
     } else if (buttonClicked === 'Upbeat') {
-        buttonsToShow = uBeat
+        buttonsToShow = upbeat
     } else {
         buttonsToShow = aggro
     };
@@ -80,12 +80,9 @@ $('.mood-button').on('click', function(e) {
         
         $('#genreBtns').append(btn2);
         $('.mood-button').hide(500);
-        // $('.beat').hide(500);
-
-
     };
     
-})
+});
 
 
 var lat = [];
@@ -103,7 +100,7 @@ $(document).on("click", ".keyword", function (playlist) {
     playlist.preventDefault();
     console.log(playlist.target.id);
     // Empty content holder so it doesn't repeat on button clicks.
-    $("#content-holder").empty();
+    $("#event-display").empty();
     // $('.keyword').hide(500);
 
 
