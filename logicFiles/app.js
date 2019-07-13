@@ -207,7 +207,7 @@ $(document).on( "click", ".TM-content", function (event) {
     console.log(eventDate[latLongIndex]);
     console.log(eventTime[latLongIndex]);
     $('#moods').empty();
-    // $('#event-display').empty();
+    
     var infoDisplay = $('<p>').text(eventName[latLongIndex]+ " " + eventDate[latLongIndex] + " " + eventTime[latLongIndex]);
     $('#moods').append(infoDisplay);
 
@@ -222,20 +222,30 @@ $(document).on( "click", ".TM-content", function (event) {
     var eatButton = $("<button>");
     eatButton.attr({
         id: "eat-button",
-        class: "TM-content"
+        // class: "TM-content"
     });
     eatButton.text("find restaurants nearby");
     $("#moods").append(eatButton);
 
 
-    $.ajax({
+    $(document).on("click", "#eat-button", function(eat) {
+        eat.preventDefault();
+        $('#moods').empty();
+        
+        $.ajax({
         url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[latLongIndex] + "&lon=" + long[latLongIndex] + "&radius=500&sort=rating",
         type: "GET",
         headers: {
             "user-key": "cf48117b55f3fd5be39bd68e58889b30",
         }
-    }).then(function (response) {
-        console.log(response);
+        }).then(function (response) {
+            console.log(response);
+            // var apiInfo = restaurants[i].restaurant;
+            for (var i = 0; i < 5; i++){
+                var food = $("<p>").text(response.restaurants[i].restaurant.name);
+                console.log(food);
+                $('#moods').append(food);
+            }
+            });
     });
 });
-    

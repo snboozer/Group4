@@ -11,6 +11,7 @@
     height: 100%;
     z-index: -2;
     opacity: 0.5;
+    text-align: center;
 } 
 
 h3 {
@@ -22,7 +23,7 @@ h3 {
 }
 
 #splash-bar {
-    display: grid;
+    /* display: grid; */
     /* justify-content: center; */
     background-color: white;
     height: 31rem;
@@ -34,7 +35,7 @@ h3 {
 
 #moods {
     /* display: grid; */
-    height: 8rem;
+    height: 31rem;
     margin-left: 2rem;
     margin-right: 2rem;
 }
