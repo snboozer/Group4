@@ -70,23 +70,7 @@
   <!-- <div class="four columns"></div> -->
   </div>
 
-    <form id="user-city">
-      <label for="cityInput">Enter City Here</label>
-      <input type="text" id="cityInput">
-      <button type="submit" id="cityBtn">click Me</button>
-    </form>
     
-    <form id="email-password">
-      <label for="email">Email</label>
-      <input type="text" id="email">
-      <label for="password">Password</label>
-      <input type="text" id="password">
-      <br>
-      <button type="submit" id="authenticateBtn">Submit</button>
-    </form>
-  <div class="row">
-    <div class="eight column" id="event-display" ></div>
-  </div>
 
 
     <!-- Javascript Files -->
@@ -104,6 +88,20 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
 
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+   apiKey: "AIzaSyAQ9upIsSCFqMlxzM2uWqjBMxUTHRtZOMg",
+   authDomain: "fir-58006.firebaseapp.com",
+   databaseURL: "https://fir-58006.firebaseio.com",
+   projectId: "fir-58006",
+   storageBucket: "fir-58006.appspot.com",
+   messagingSenderId: "1033199777878",
+   appId: "1:1033199777878:web:e23d3e8896a47a6a"
+ };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
     <script src="logicFiles/app.js"></script>
 
     <!-- End Document

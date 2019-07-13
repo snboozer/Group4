@@ -1,40 +1,33 @@
+// firebase login authentification start
 
- // Your web app's Firebase configuration
- var firebaseConfig = {
-   apiKey: "AIzaSyAQ9upIsSCFqMlxzM2uWqjBMxUTHRtZOMg",
-   authDomain: "fir-58006.firebaseapp.com",
-   databaseURL: "https://fir-58006.firebaseio.com",
-   projectId: "fir-58006",
-   storageBucket: "fir-58006.appspot.com",
-   messagingSenderId: "1033199777878",
-   appId: "1:1033199777878:web:e23d3e8896a47a6a"
- };
- // Initialize Firebase
- firebase.initializeApp(firebaseConfig);
- firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });email-password.html
+function login(){
+   
+    var userEmail = document.getElementById("email_field").value
+    var userPass = document.getElementById("password_field").value
+
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        window.alert("Error : " + errorMessage);
+
+        // ...
+      });
+}
+
+function logout(){
+    firebase.auth().signOut();
+
+}
+// end of firebase login authentification
+
 
 $(document).ready(function() {
 
 var uBeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['rnb', 'classical', 'jazz'];
-// Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyAQ9upIsSCFqMlxzM2uWqjBMxUTHRtZOMg",
-    authDomain: "fir-58006.firebaseapp.com",
-    databaseURL: "https://fir-58006.firebaseio.com",
-    projectId: "fir-58006",
-    storageBucket: "fir-58006.appspot.com",
-    messagingSenderId: "1033199777878",
-    appId: "1:1033199777878:web:e23d3e8896a47a6a"
-};
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
 
 var email;
 var password;
