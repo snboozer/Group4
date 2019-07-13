@@ -11,6 +11,7 @@
     height: 100%;
     z-index: -2;
     opacity: 0.5;
+    text-align: center;
 } 
 
 h3 {
@@ -25,16 +26,25 @@ h3 {
     display: grid;
     /* justify-content: center; */
     background-color: white;
-    height: 18rem;
+    height: 31rem;
     opacity: 0.5;
-    padding-left: 0;
+    padding-top: 1rem;
     text-align: center;
+    z-index: -1;
 }
 
 #moods {
-    display: grid;
-    height: 8rem;
+    /* display: grid; */
+    height: 31rem;
     margin-left: 2rem;
     margin-right: 2rem;
 }
 
+.event-image {
+    width: auto;
+    height: 18rem;
+}
+
+.TM-content {
+    background-color: white;
+}
