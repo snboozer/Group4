@@ -50,11 +50,14 @@ $('#form').on('submit', function(e) {
     state = $('#state').val().trim();
     console.log(state);
 });
-    
+var moods = ['upbeat', 'chill', 'aggro']   
 var upbeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['r&b', 'classical', 'jazz'];
 var aggro = ['metal', 'punk'];
 
+var backButton = $('<button>');
+backButton.text('back');
+$(backButton).attr('id', 'back');
 
 
 $('.mood-button').on('click', function(e) {
@@ -63,9 +66,9 @@ $('.mood-button').on('click', function(e) {
     var buttonClicked = e.target.textContent;
     var buttonsToShow;
 
-    if (buttonClicked === 'Chill') {
+    if (buttonClicked === 'chill') {
         buttonsToShow = chill
-    } else if (buttonClicked === 'Upbeat') {
+    } else if (buttonClicked === 'upbeat') {
         buttonsToShow = upbeat
     } else {
         buttonsToShow = aggro
@@ -81,15 +84,17 @@ $('.mood-button').on('click', function(e) {
         $('#genreBtns').append(btn2);
         $('.mood-button').hide(500);
     };
+    $('#genreBtns').append(backButton);
+    
     
 });
 
 
 var lat = [];
-console.log(lat);
+// console.log(lat);
                
 var long = [];
-console.log(long);
+// console.log(long);
 
 
 // ticketmaster api key format//
