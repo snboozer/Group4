@@ -25,7 +25,7 @@ h3 {
     display: grid;
     /* justify-content: center; */
     background-color: white;
-    height: 18rem;
+    height: 25rem;
     opacity: 0.5;
     padding-left: 0;
     text-align: center;
@@ -37,4 +37,11 @@ h3 {
     margin-left: 2rem;
     margin-right: 2rem;
 }
+
+.event-image {
+    width: auto;
+    height: 18rem;
+    /* opacity: O.9; */
+    z-index: 1;
+  }
 

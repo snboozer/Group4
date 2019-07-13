@@ -116,6 +116,8 @@ var eventDate = [];
 console.log(eventDate);
 var eventTime = [];
 console.log(eventTime);
+var imageLink = [];
+
 // ticketmaster api key format//
 // https://app.ticketmaster.com/{package}/{version}/{resource}.json?apikey=**{API key} //
 // https://app.ticketmaster.com/discovery/v2/{resource}.json?apikey=**{API key}
@@ -174,6 +176,7 @@ $(document).on("click", ".keyword", function (playlist) {
                 console.log(eventName);
                 eventDate.push(json._embedded.events[i].dates.start.localDate);
                 eventTime.push(json._embedded.events[i].dates.start.localTime);
+                imageLink.push(json._embedded.events[i].images[0].url)
 
                 // Create 5 new divs.
                 var contentBox = document.createElement("button");
@@ -206,6 +209,15 @@ $(document).on( "click", ".TM-content", function (event) {
     $('#moods').empty();
     var infoDisplay = $('<p>').text(eventName[latLongIndex]+ " " + eventDate[latLongIndex] + " " + eventTime[latLongIndex]);
     $('#moods').append(infoDisplay);
+
+    var eventImage = $('<img>');
+    eventImage.attr({
+        src: imageLink[latLongIndex],
+        class: "event-image"
+        
+    });
+
+    $('#moods').append(eventImage);
 
 
 
