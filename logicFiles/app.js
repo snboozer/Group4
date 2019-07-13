@@ -51,6 +51,7 @@ $('#form').on('submit', function(e) {
     console.log(state);
     moodButtonCreate();
 });
+
 var moods = ['upbeat', 'chill', 'aggro']   
 var upbeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['r&b', 'classical', 'jazz'];
@@ -66,7 +67,7 @@ function moodButtonCreate() {
         moodButton.text(moods[i]);
         moodButton.addClass("mood-button");
         $(moodButton).attr('id', moods[i]);
-        $('#genreBtns').append(moodButton);
+        $('#moods').append(moodButton);
     };
 };
 
@@ -92,14 +93,14 @@ $(document).on('click', '.mood-button', function(e) {
         $(btn2).attr('id', buttonsToShow[j]);
         btn2.addClass('keyword');
         
-        $('#genreBtns').append(btn2);
+        $('#moods').append(btn2);
         $('.mood-button').hide(500);
     };
-    $('#genreBtns').append(backButton);
+    $('#moods').append(backButton);
 });
 
-$(backButton).on('click', function(reset){
-    $('#genreBtns').empty();
+$(document).on('click', '#back', function(reset){
+    $('#moods').empty();
     moodButtonCreate();
 });
 

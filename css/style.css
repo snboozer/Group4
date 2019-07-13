@@ -32,7 +32,7 @@ h3 {
 }
 
 #moods {
-    display: grid;
+    /* display: grid; */
     height: 8rem;
     margin-left: 2rem;
     margin-right: 2rem;
