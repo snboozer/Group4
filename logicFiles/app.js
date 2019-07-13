@@ -207,6 +207,7 @@ $(document).on( "click", ".TM-content", function (event) {
     console.log(eventDate[latLongIndex]);
     console.log(eventTime[latLongIndex]);
     $('#moods').empty();
+    // $('#event-display').empty();
     var infoDisplay = $('<p>').text(eventName[latLongIndex]+ " " + eventDate[latLongIndex] + " " + eventTime[latLongIndex]);
     $('#moods').append(infoDisplay);
 
@@ -214,11 +215,17 @@ $(document).on( "click", ".TM-content", function (event) {
     eventImage.attr({
         src: imageLink[latLongIndex],
         class: "event-image"
-        
+
     });
 
     $('#moods').append(eventImage);
-
+    var eatButton = $("<button>");
+    eatButton.attr({
+        id: "eat-button",
+        class: "TM-content"
+    });
+    eatButton.text("find restaurants nearby");
+    $("#moods").append(eatButton);
 
 
     $.ajax({
