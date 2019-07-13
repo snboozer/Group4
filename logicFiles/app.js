@@ -110,7 +110,12 @@ var lat = [];
 var long = [];
 // console.log(long);
 
-
+var eventName = [];
+console.log(eventName);
+var eventDate = [];
+console.log(eventDate);
+var eventTime = [];
+console.log(eventTime);
 // ticketmaster api key format//
 // https://app.ticketmaster.com/{package}/{version}/{resource}.json?apikey=**{API key} //
 // https://app.ticketmaster.com/discovery/v2/{resource}.json?apikey=**{API key}
@@ -136,6 +141,7 @@ $(document).on("click", ".keyword", function (playlist) {
 
     // moment.js calculations to be added so ticketmaster will only return future events.
     var currentTime = moment();
+    console.log(currentTime);
     
     var date = currentTime.format("YYYY-MM-DD");
     
@@ -164,6 +170,11 @@ $(document).on("click", ".keyword", function (playlist) {
                 
                 long.push(json._embedded.events[i]._embedded.venues[0].location.longitude);
 
+                eventName.push(json._embedded.events[i].name);
+                console.log(eventName);
+                eventDate.push(json._embedded.events[i].dates.start.localDate);
+                eventTime.push(json._embedded.events[i].dates.start.localTime);
+
                 // Create 5 new divs.
                 var contentBox = document.createElement("button");
                 // $(contentBox).attr("value", i);
@@ -180,7 +191,7 @@ $(document).on("click", ".keyword", function (playlist) {
         },
     })
 
-})
+});
 
 
 $(document).on( "click", ".TM-content", function (event) {
@@ -189,6 +200,15 @@ $(document).on( "click", ".TM-content", function (event) {
     var latLongIndex = $(this).val();
     console.log(lat[latLongIndex]);
     console.log(long[latLongIndex]);
+    console.log(eventName[latLongIndex]);
+    console.log(eventDate[latLongIndex]);
+    console.log(eventTime[latLongIndex]);
+    $('#moods').empty();
+    var infoDisplay = $('<p>').text(eventName[latLongIndex]+ " " + eventDate[latLongIndex] + " " + eventTime[latLongIndex]);
+    $('#moods').append(infoDisplay);
+
+
+
     $.ajax({
         url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[latLongIndex] + "&lon=" + long[latLongIndex] + "&radius=500&sort=rating",
         type: "GET",
