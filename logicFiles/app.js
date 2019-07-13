@@ -101,6 +101,8 @@ $(document).on('click', '.mood-button', function(e) {
 
 $(document).on('click', '#back', function(reset){
     $('#moods').empty();
+    $('#event-display').empty();
+
     moodButtonCreate();
 });
 
@@ -190,10 +192,10 @@ $(document).on("click", ".keyword", function (playlist) {
                 $("#event-display").append($(contentBox));
             };
             
-        
+            $('#event-display').append(backButton);
+            
         },
     })
-
 });
 
 var eventIndex;
