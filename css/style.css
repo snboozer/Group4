@@ -23,7 +23,7 @@ h3 {
 }
 
 #splash-bar {
-    /* display: grid; */
+    display: grid;
     /* justify-content: center; */
     background-color: white;
     height: 31rem;
@@ -43,9 +43,7 @@ h3 {
 .event-image {
     width: auto;
     height: 18rem;
-    /* opacity: O.9; */
-    /* z-index:; */
-  }
+}
 
 .TM-content {
     background-color: white;

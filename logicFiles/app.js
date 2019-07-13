@@ -1,5 +1,3 @@
-
-
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAQ9upIsSCFqMlxzM2uWqjBMxUTHRtZOMg",
@@ -16,12 +14,10 @@ firebase.initializeApp(firebaseConfig);
 
 var email;
 var password;
-var city; 
-console.log(city);
-var state; 
-console.log(state);
+var city;
+var state;
 
-$("#submit").click(function (event) {
+$("#submit").click(function(event) {
     event.preventDefault()
     var User = {
         email: $("#email").val().trim(),
@@ -34,25 +30,21 @@ $("#submit").click(function (event) {
     $("#password").val("")
     $("#city").val("")
     $("#state").val("")
-    // console.log(User)
 });
 
 $('#form').on('submit', function(e) {
     e.preventDefault()
     email = $('#email').val().trim();
     password = $('#password').val().trim();
-    // change .shownFirst
     submitted = $('.shownFirst');
     submitted.hide();
     hidden = $('.hidden').show();
     city = $('#city').val().trim();
-    console.log(city); 
     state = $('#state').val().trim();
-    console.log(state);
     moodButtonCreate();
 });
 
-var moods = ['upbeat', 'chill', 'aggro']   
+var moods = ['upbeat', 'chill', 'aggro']
 var upbeat = ['rap', 'dance', 'rock', 'pop'];
 var chill = ['r&b', 'classical', 'jazz'];
 var aggro = ['metal', 'punk'];
@@ -62,7 +54,7 @@ backButton.text('back');
 $(backButton).attr('id', 'back');
 
 function moodButtonCreate() {
-    for ( var i = 0; i < moods.length; i++ ) {
+    for (var i = 0; i < moods.length; i++) {
         var moodButton = $('<button>');
         moodButton.text(moods[i]);
         moodButton.addClass("mood-button");
@@ -74,7 +66,6 @@ function moodButtonCreate() {
 
 $(document).on('click', '.mood-button', function(e) {
     e.preventDefault();
-    console.log(e.target.textContent);
     var buttonClicked = e.target.textContent;
     var buttonsToShow;
 
@@ -87,19 +78,19 @@ $(document).on('click', '.mood-button', function(e) {
     };
 
 
-    for(var j = 0; j < buttonsToShow.length; j++) {
+    for (var j = 0; j < buttonsToShow.length; j++) {
         var btn2 = $("<button>");
         btn2.text(buttonsToShow[j]);
         $(btn2).attr('id', buttonsToShow[j]);
         btn2.addClass('keyword');
-        
+
         $('#moods').append(btn2);
         $('.mood-button').hide(500);
     };
     $('#moods').append(backButton);
 });
 
-$(document).on('click', '#back', function(reset){
+$(document).on('click', '#back', function(reset) {
     $('#moods').empty();
     $('#event-display').empty();
 
@@ -107,30 +98,25 @@ $(document).on('click', '#back', function(reset){
 });
 
 var lat = [];
-// console.log(lat);
-               
+
 var long = [];
-// console.log(long);
 
 var eventName = [];
-console.log(eventName);
+
 var eventDate = [];
-console.log(eventDate);
+
 var eventTime = [];
-console.log(eventTime);
+
 var imageLink = [];
 
 // ticketmaster api key format//
 // https://app.ticketmaster.com/{package}/{version}/{resource}.json?apikey=**{API key} //
 // https://app.ticketmaster.com/discovery/v2/{resource}.json?apikey=**{API key}
 
-$(document).on("click", ".keyword", function (playlist) {
+$(document).on("click", ".keyword", function(playlist) {
     playlist.preventDefault();
-    console.log(playlist.target.id);
     // Empty content holder so it doesn't repeat on button clicks.
     $("#event-display").empty();
-    // $('.keyword').hide(500);
-
 
     // Ticketmaster api key for the project
     var apiKey = "9Ava0NGUIwM3dsiyal9TG4fQF74ykDqb";
@@ -138,23 +124,17 @@ $(document).on("click", ".keyword", function (playlist) {
     // Keywords variable for api request
     var genre = playlist.target.id;
 
-    // // City variable for request, user will have to input a city for this to work
-    // var city = "philadelphia";
-
-    // var state = "pa"
-
     // moment.js calculations to be added so ticketmaster will only return future events.
     var currentTime = moment();
-    console.log(currentTime);
-    
+
     var date = currentTime.format("YYYY-MM-DD");
-    
+
 
     // ticketmaster api date format e.g.
     // dateTime: "2019-07-15T00:00:00Z"
 
     // Ajax function taken from ticketmaster documentation https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/#search-events-v2
-    
+
 
     $.ajax({
         type: "GET",
@@ -162,20 +142,16 @@ $(document).on("click", ".keyword", function (playlist) {
 
         async: true,
         dataType: "json",
-        success: function (json) {
-            console.log(json._embedded.events);
-            // Parse the response.
-            // Do other things.
+        success: function(json) {
 
             // Create divs dynamically to hold api information.
             for (var i = 0; i < 5; i++) {
                 // Get latitude and longitude from event and push to lat and long arrays.
                 lat.push(json._embedded.events[i]._embedded.venues[0].location.latitude);
-                
+
                 long.push(json._embedded.events[i]._embedded.venues[0].location.longitude);
 
                 eventName.push(json._embedded.events[i].name);
-                console.log(eventName);
                 eventDate.push(json._embedded.events[i].dates.start.localDate);
                 eventTime.push(json._embedded.events[i].dates.start.localTime);
                 imageLink.push(json._embedded.events[i].images[0].url)
@@ -191,28 +167,23 @@ $(document).on("click", ".keyword", function (playlist) {
                 // Append newly created divs to content-holder div.
                 $("#event-display").append($(contentBox));
             };
-            
+
             $('#event-display').append(backButton);
-            
+
         },
     })
 });
 
 var eventIndex;
-console.log(eventIndex);
 
-$(document).on( "click", ".TM-content", function (event) {
+$(document).on("click", ".TM-content", function(event) {
     event.preventDefault();
 
     eventIndex = $(this).val();
-    console.log(lat[eventIndex]);
-    console.log(long[eventIndex]);
-    console.log(eventName[eventIndex]);
-    console.log(eventDate[eventIndex]);
-    console.log(eventTime[eventIndex]);
-    $('#moods').empty();
     
-    var infoDisplay = $('<p>').text(eventName[eventIndex]+ " " + eventDate[eventIndex] + " " + eventTime[eventIndex]);
+    $('#moods').empty();
+
+    var infoDisplay = $('<p>').text(eventName[eventIndex] + " " + eventDate[eventIndex] + " " + eventTime[eventIndex]);
     $('#moods').append(infoDisplay);
 
     var eventImage = $('<img>');
@@ -226,32 +197,26 @@ $(document).on( "click", ".TM-content", function (event) {
     var eatButton = $("<button>");
     eatButton.attr({
         id: "eat-button",
-        // class: "TM-content"
     });
     eatButton.text("find restaurants nearby");
     $("#moods").append(eatButton);
 });
 
-// var eventIndex;
-
 
 $(document).on("click", "#eat-button", function(eat) {
     eat.preventDefault();
     $('#moods').empty();
-    
+
     $.ajax({
-    url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[eventIndex] + "&lon=" + long[eventIndex] + "&radius=500&sort=rating",
-    type: "GET",
-    headers: {
-        "user-key": "cf48117b55f3fd5be39bd68e58889b30",
-    }
-    }).then(function (response) {
-        console.log(response);
-        // var apiInfo = restaurants[i].restaurant;
-        for (var i = 0; i < 5; i++){
+        url: "https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[eventIndex] + "&lon=" + long[eventIndex] + "&radius=500&sort=rating",
+        type: "GET",
+        headers: {
+            "user-key": "cf48117b55f3fd5be39bd68e58889b30",
+        }
+    }).then(function(response) {
+        for (var i = 0; i < 5; i++) {
             var food = $("<p>").text(response.restaurants[i].restaurant.name + " " + response.restaurants[i].restaurant.location.address);
-            console.log(food);
             $('#moods').append(food);
         }
-        });
+    });
 });
