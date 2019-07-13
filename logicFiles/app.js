@@ -1,3 +1,51 @@
+// firebase login authentification start
+
+firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // User is signed in.
+
+      document.getElementById("user_div").style.display = "block";
+      document.getElementById("login_div").style.display = "none";
+
+      
+
+
+
+    } else {
+      // No user is signed in.
+
+      document.getElementById("user_div").style.display = "none";
+      document.getElementById("login_div").style.display = "block";
+    }
+  });
+  
+function login(){
+   
+    var userEmail = document.getElementById("email").value
+    var userPass = document.getElementById("password").value
+
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+
+        window.alert("Error : " + errorMessage);
+
+        // ...
+      });
+}
+
+function logout(){
+    firebase.auth().signOut();
+
+}
+// end of firebase login authentification
+
+
+$(document).ready(function() {
+
+var uBeat = ['rap', 'dance', 'rock', 'pop'];
+var chill = ['rnb', 'classical', 'jazz'];
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAQ9upIsSCFqMlxzM2uWqjBMxUTHRtZOMg",
@@ -9,8 +57,6 @@ var firebaseConfig = {
     appId: "1:1033199777878:web:e23d3e8896a47a6a"
 };
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
 
 var email;
 var password;
@@ -20,14 +66,14 @@ var state;
 $("#submit").click(function(event) {
     event.preventDefault()
     var User = {
-        email: $("#email").val().trim(),
-        password: $("#password").val().trim(),
+        email: $("email").val().trim(),
+        password: $("password").val().trim(),
         city: $("#city").val().trim(),
         state: $("#state").val().trim(),
     }
     database.ref().push(User)
-    $("#email").val("")
-    $("#password").val("")
+    $("email").val("")
+    $("password").val("")
     $("#city").val("")
     $("#state").val("")
 });
@@ -219,3 +265,5 @@ $(document).on("click", "#eat-button", function(eat) {
         }
     });
 });
+});
+
