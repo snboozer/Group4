@@ -196,24 +196,26 @@ $(document).on("click", ".keyword", function (playlist) {
 
 });
 
+var eventIndex;
+console.log(eventIndex);
 
 $(document).on( "click", ".TM-content", function (event) {
     event.preventDefault();
 
-    var latLongIndex = $(this).val();
-    console.log(lat[latLongIndex]);
-    console.log(long[latLongIndex]);
-    console.log(eventName[latLongIndex]);
-    console.log(eventDate[latLongIndex]);
-    console.log(eventTime[latLongIndex]);
+    eventIndex = $(this).val();
+    console.log(lat[eventIndex]);
+    console.log(long[eventIndex]);
+    console.log(eventName[eventIndex]);
+    console.log(eventDate[eventIndex]);
+    console.log(eventTime[eventIndex]);
     $('#moods').empty();
     
-    var infoDisplay = $('<p>').text(eventName[latLongIndex]+ " " + eventDate[latLongIndex] + " " + eventTime[latLongIndex]);
+    var infoDisplay = $('<p>').text(eventName[eventIndex]+ " " + eventDate[eventIndex] + " " + eventTime[eventIndex]);
     $('#moods').append(infoDisplay);
 
     var eventImage = $('<img>');
     eventImage.attr({
-        src: imageLink[latLongIndex],
+        src: imageLink[eventIndex],
         class: "event-image"
 
     });
@@ -226,26 +228,28 @@ $(document).on( "click", ".TM-content", function (event) {
     });
     eatButton.text("find restaurants nearby");
     $("#moods").append(eatButton);
+});
+
+// var eventIndex;
 
 
-    $(document).on("click", "#eat-button", function(eat) {
-        eat.preventDefault();
-        $('#moods').empty();
-        
-        $.ajax({
-        url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[latLongIndex] + "&lon=" + long[latLongIndex] + "&radius=500&sort=rating",
-        type: "GET",
-        headers: {
-            "user-key": "cf48117b55f3fd5be39bd68e58889b30",
+$(document).on("click", "#eat-button", function(eat) {
+    eat.preventDefault();
+    $('#moods').empty();
+    
+    $.ajax({
+    url:"https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[eventIndex] + "&lon=" + long[eventIndex] + "&radius=500&sort=rating",
+    type: "GET",
+    headers: {
+        "user-key": "cf48117b55f3fd5be39bd68e58889b30",
+    }
+    }).then(function (response) {
+        console.log(response);
+        // var apiInfo = restaurants[i].restaurant;
+        for (var i = 0; i < 5; i++){
+            var food = $("<p>").text(response.restaurants[i].restaurant.name + " " + response.restaurants[i].restaurant.location.address);
+            console.log(food);
+            $('#moods').append(food);
         }
-        }).then(function (response) {
-            console.log(response);
-            // var apiInfo = restaurants[i].restaurant;
-            for (var i = 0; i < 5; i++){
-                var food = $("<p>").text(response.restaurants[i].restaurant.name);
-                console.log(food);
-                $('#moods').append(food);
-            }
-            });
-    });
+        });
 });
