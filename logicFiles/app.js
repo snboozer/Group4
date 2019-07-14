@@ -1,9 +1,3 @@
-$(document).ready(function() {
-
-var uBeat = ['rap', 'dance', 'rock', 'pop'];
-var chill = ['rnb', 'classical', 'jazz'];
-
-
 var email;
 var password;
 var city;
@@ -12,14 +6,14 @@ var state;
 $("#submit").click(function(event) {
     event.preventDefault()
     var User = {
-        email: $("email").val().trim(),
-        password: $("password").val().trim(),
+        email: $("#email").val().trim(),
+        password: $("#password").val().trim(),
         city: $("#city").val().trim(),
         state: $("#state").val().trim(),
     }
     database.ref().push(User)
-    $("email").val("")
-    $("password").val("")
+    $("#email").val("")
+    $("#password").val("")
     $("#city").val("")
     $("#state").val("")
 });
@@ -211,5 +205,3 @@ $(document).on("click", "#eat-button", function(eat) {
         }
     });
 });
-});
-
