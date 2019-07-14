@@ -1,17 +1,3 @@
-// Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyAQ9upIsSCFqMlxzM2uWqjBMxUTHRtZOMg",
-    authDomain: "fir-58006.firebaseapp.com",
-    databaseURL: "https://fir-58006.firebaseio.com",
-    projectId: "fir-58006",
-    storageBucket: "fir-58006.appspot.com",
-    messagingSenderId: "1033199777878",
-    appId: "1:1033199777878:web:e23d3e8896a47a6a"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
 var email;
 var password;
 var city;
