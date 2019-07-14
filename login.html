@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="login_div">
+        <input class="shownFirst" type="email" name="email" id="email" placeholder="Enter Email">
+        <input class="shownFirst" type="password" id="password" name="state" placeholder="Enter Password">
+        <button onclick="login()">Login</button>
+      </div>
+      <div id="user_div" class="loggedin-div">
+        <button onclick="logout()">logout</button>
+      </div>
+        <br>
+
+        <!-- firebase cdn -->
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+   apiKey: "AIzaSyAQ9upIsSCFqMlxzM2uWqjBMxUTHRtZOMg",
+   authDomain: "fir-58006.firebaseapp.com",
+   databaseURL: "https://fir-58006.firebaseio.com",
+   projectId: "fir-58006",
+   storageBucket: "fir-58006.appspot.com",
+   messagingSenderId: "1033199777878",
+   appId: "1:1033199777878:web:e23d3e8896a47a6a"
+ };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="logicFiles/login.js"></script>
+  
+</body>
+</html>
