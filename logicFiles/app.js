@@ -11,13 +11,14 @@ var firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+// var database = firebase.database();
 
 var email;
 var password;
 var city;
 var state;
 
-$("#submit").click(function(event) {
+$("#loginBtn").click(function(event) {
     event.preventDefault()
     var User = {
         email: $("#email").val().trim(),
@@ -32,7 +33,7 @@ $("#submit").click(function(event) {
     $("#state").val("")
 });
 
-$('#form').on('submit', function(e) {
+$('#form').on('click', "#loginBtn", function(e) {
     e.preventDefault()
     email = $('#email').val().trim();
     password = $('#password').val().trim();
@@ -41,6 +42,7 @@ $('#form').on('submit', function(e) {
     hidden = $('.hidden').show();
     city = $('#city').val().trim();
     state = $('#state').val().trim();
+    $("form").empty();
     moodButtonCreate();
 });
 
