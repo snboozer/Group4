@@ -28,7 +28,7 @@ $('#form').on('click', "#loginBtn", function(e) {
     hidden = $('.hidden').show();
     city = $('#city').val().trim();
     state = $('#state').val().trim();
-    $("form").empty();
+    $("#moods").empty();
     moodButtonCreate();
 });
 
@@ -44,16 +44,20 @@ $(backButton).attr('id', 'back');
 function moodButtonCreate() {
     for (var i = 0; i < moods.length; i++) {
         var moodButton = $('<button>');
+        // var moodButtonBreak = $("<br>");
         moodButton.text(moods[i]);
         moodButton.addClass("mood-button");
         $(moodButton).attr('id', moods[i]);
         $('#moods').append(moodButton);
+        // $('#moods').append(moodButtonBreak);
     };
 };
 
 
 $(document).on('click', '.mood-button', function(e) {
     e.preventDefault();
+    $('#moods').empty();
+    
     var buttonClicked = e.target.textContent;
     var buttonsToShow;
 
@@ -88,28 +92,26 @@ var lat = [];
 
 var long = [];
 
-var eventName = [];
-
-var eventDate = [];
-
-var eventTime = [];
-
-var imageLink = [];
-
 // ticketmaster api key format//
 // https://app.ticketmaster.com/{package}/{version}/{resource}.json?apikey=**{API key} //
 // https://app.ticketmaster.com/discovery/v2/{resource}.json?apikey=**{API key}
 
-$(document).on("click", ".keyword", function(playlist) {
-    playlist.preventDefault();
+$(document).on("click", ".keyword", function(genreButtonCreate) {
+    genreButtonCreate.preventDefault();
     // Empty content holder so it doesn't repeat on button clicks.
     $("#event-display").empty();
+    eventName = [];
 
+    eventDate = [];
+
+    eventTime = [];
+
+    imageLink = []
     // Ticketmaster api key for the project
     var apiKey = "9Ava0NGUIwM3dsiyal9TG4fQF74ykDqb";
 
     // Keywords variable for api request
-    var genre = playlist.target.id;
+    var genre = genreButtonCreate.target.id;
 
     // moment.js calculations to be added so ticketmaster will only return future events.
     var currentTime = moment();
@@ -161,8 +163,13 @@ $(document).on("click", ".keyword", function(playlist) {
     })
 });
 
-var eventIndex;
-console.log(eventIndex);
+var eventName = [];
+
+var eventDate = [];
+
+var eventTime = [];
+
+var imageLink = [];
 
 $(document).on("click", ".TM-content", function(event) {
     event.preventDefault();
@@ -204,7 +211,7 @@ $(document).on("click", "#eat-button", function(eat) {
     $('#moods').empty();
 
     $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[eventIndex] + "&lon=" + long[eventIndex] + "&radius=500&sort=rating",
+        url: "https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[eventIndex] + "&lon=" + long[eventIndex] + "&radius=200&sort=rating",
         type: "GET",
         headers: {
             "user-key": "cf48117b55f3fd5be39bd68e58889b30",
