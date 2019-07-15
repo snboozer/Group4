@@ -45,6 +45,6 @@ h3 {
     height: 18rem;
 }
 
-.TM-content {
+.TM-content, #back {
     background-color: white;
 }
