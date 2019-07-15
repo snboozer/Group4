@@ -27,7 +27,7 @@ $('#form').on('click', "#loginBtn", function(e) {
     hidden = $('.hidden').show();
     city = $('#city').val().trim();
     state = $('#state').val().trim();
-    $("form").empty();
+    $("#moods").empty();
     moodButtonCreate();
 });
 
@@ -53,6 +53,8 @@ function moodButtonCreate() {
 
 $(document).on('click', '.mood-button', function(e) {
     e.preventDefault();
+    $('#moods').empty();
+    
     var buttonClicked = e.target.textContent;
     var buttonsToShow;
 
