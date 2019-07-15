@@ -156,7 +156,7 @@ $(document).on("click", ".keyword", function(genreButtonCreate) {
                 $("#event-display").append($(contentBox));
             };
 
-            // $('#event-display').append(backButton);
+            $('#event-display').append(backButton);
 
         },
     })
