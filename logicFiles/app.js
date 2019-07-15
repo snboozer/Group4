@@ -1,4 +1,3 @@
-
 var email;
 var password;
 var city;
