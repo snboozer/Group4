@@ -1,24 +1,10 @@
 
-// Your web app's Firebase configuration
-var firebaseConfig = {
-    apiKey: "AIzaSyAQ9upIsSCFqMlxzM2uWqjBMxUTHRtZOMg",
-    authDomain: "fir-58006.firebaseapp.com",
-    databaseURL: "https://fir-58006.firebaseio.com",
-    projectId: "fir-58006",
-    storageBucket: "fir-58006.appspot.com",
-    messagingSenderId: "1033199777878",
-    appId: "1:1033199777878:web:e23d3e8896a47a6a"
-};
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
 var email;
 var password;
 var city;
 var state;
 
-$("#submit").click(function(event) {
+$("#loginBtn").click(function(event) {
     event.preventDefault()
     var User = {
         email: $("#email").val().trim(),
@@ -33,7 +19,7 @@ $("#submit").click(function(event) {
     $("#state").val("")
 });
 
-$('#form').on('submit', function(e) {
+$('#form').on('click', "#loginBtn", function(e) {
     e.preventDefault()
     email = $('#email').val().trim();
     password = $('#password').val().trim();
@@ -42,6 +28,7 @@ $('#form').on('submit', function(e) {
     hidden = $('.hidden').show();
     city = $('#city').val().trim();
     state = $('#state').val().trim();
+    $("form").empty();
     moodButtonCreate();
 });
 
@@ -168,13 +155,14 @@ $(document).on("click", ".keyword", function(playlist) {
                 $("#event-display").append($(contentBox));
             };
 
-            $('#event-display').append(backButton);
+            // $('#event-display').append(backButton);
 
         },
     })
 });
 
 var eventIndex;
+console.log(eventIndex);
 
 $(document).on("click", ".TM-content", function(event) {
     event.preventDefault();
@@ -194,14 +182,22 @@ $(document).on("click", ".TM-content", function(event) {
     });
 
     $('#moods').append(eventImage);
+
+    var lineBreak = $("<br>");
+    $("#moods").append(lineBreak);
+
     var eatButton = $("<button>");
     eatButton.attr({
         id: "eat-button",
     });
     eatButton.text("find restaurants nearby");
     $("#moods").append(eatButton);
+    // secondBackButton()
 });
 
+function secondBackButton(){
+    $('#event-display').append(backButton);
+};
 
 $(document).on("click", "#eat-button", function(eat) {
     eat.preventDefault();
