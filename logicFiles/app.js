@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> c822e93d2253ac096174c57bf96c588cdf7be62d
 var email;
 var password;
 var city;
