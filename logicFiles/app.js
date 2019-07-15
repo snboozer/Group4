@@ -167,13 +167,14 @@ $(document).on("click", ".keyword", function(playlist) {
                 $("#event-display").append($(contentBox));
             };
 
-            $('#event-display').append(backButton);
+            // $('#event-display').append(backButton);
 
         },
     })
 });
 
 var eventIndex;
+console.log(eventIndex);
 
 $(document).on("click", ".TM-content", function(event) {
     event.preventDefault();
@@ -199,8 +200,12 @@ $(document).on("click", ".TM-content", function(event) {
     });
     eatButton.text("find restaurants nearby");
     $("#moods").append(eatButton);
+    // secondBackButton()
 });
 
+function secondBackButton(){
+    $('#event-display').append(backButton);
+};
 
 $(document).on("click", "#eat-button", function(eat) {
     eat.preventDefault();
