@@ -196,6 +196,10 @@ $(document).on("click", ".TM-content", function(event) {
     });
 
     $('#moods').append(eventImage);
+
+    var lineBreak = $("<br>");
+    $("#moods").append(lineBreak);
+    
     var eatButton = $("<button>");
     eatButton.attr({
         id: "eat-button",
