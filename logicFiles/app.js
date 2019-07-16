@@ -18,18 +18,21 @@ $("#loginBtn").click(function(event) {
     $("#state").val("")
 });
 
-$('#form').on('click', "#loginBtn", function(e) {
-    e.preventDefault()
-    email = $('#email').val().trim();
-    password = $('#password').val().trim();
-    submitted = $('.shownFirst');
-    submitted.hide();
-    hidden = $('.hidden').show();
-    city = $('#city').val().trim();
-    state = $('#state').val().trim();
-    $("#moods").empty();
-    moodButtonCreate();
-});
+    
+    $('#form').on('click', "#loginBtn", function(e) {
+        e.preventDefault()
+        email = $('#email').val().trim();
+        password = $('#password').val().trim();
+        submitted = $('.shownFirst');
+        submitted.hide();
+        hidden = $('.hidden').show();
+        city = $('#city').val().trim();
+        state = $('#state').val().trim();
+        $("#moods").empty();
+        moodButtonCreate();
+    });
+
+
 
 var moods = ['upbeat', 'chill', 'aggro']
 var upbeat = ['rap', 'dance', 'rock', 'pop'];
@@ -48,7 +51,7 @@ function moodButtonCreate() {
         moodButton.addClass("mood-button");
         $(moodButton).attr('id', moods[i]);
         $('#moods').append(moodButton);
-        // $('#moods').append(moodButtonBreak);
+        //$('#moods').append(moodButtonBreak);
     };
 };
 
@@ -222,3 +225,6 @@ $(document).on("click", "#eat-button", function(eat) {
         }
     });
 });
+
+
+  
