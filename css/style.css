@@ -24,17 +24,13 @@ h3 {
 
 #splash-bar {
     display: grid;
-    /* justify-content: center; */
-    background-color: white;
+    background-color: rgba(255,255,255,0.5);
     height: 29rem;
-    opacity: 0.5;
     padding-top: 1rem;
     text-align: center;
-    z-index: -1;
 }
 
 #moods {
-    /* display: grid; */
     height: 31rem;
     margin-left: 2rem;
     margin-right: 2rem;

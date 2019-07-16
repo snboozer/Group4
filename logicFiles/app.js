@@ -210,7 +210,7 @@ $(document).on("click", "#eat-button", function(eat) {
     $('#moods').empty();
 
     $.ajax({
-        url: "https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[eventIndex] + "&lon=" + long[eventIndex] + "&radius=200&sort=rating",
+        url: "https://cors-anywhere.herokuapp.com/https://developers.zomato.com/api/v2.1/search?lat=" + lat[eventIndex] + "&lon=" + long[eventIndex] + "&radius=100&sort=rating",
         type: "GET",
         headers: {
             "user-key": "cf48117b55f3fd5be39bd68e58889b30",
