@@ -1,12 +1,12 @@
 //user authentication and homepage redirect
 function login() {
     
-  var userEmail = document.getElementById("email_field").value;
-  var userPass = document.getElementById("password_field").value;
+  var userEmail = document.getElementById("email").value;
+  var userPass = document.getElementById("password").value;
 
   firebase.auth().signInWithEmailAndPassword(userEmail, userPass).then(user => {
 
-      window.location = "index.html";
+        //window.location = "index.html";
       
   })
   
@@ -16,6 +16,7 @@ function login() {
       var errorMessage = error.message;
       
       window.alert("Error : " + errorMessage);
+      window.location = "index.html";
     });
 
        //Handle Account Status
