@@ -180,7 +180,7 @@ $(document).on("click", ".TM-content", function(event) {
     
     $('#moods').empty();
 
-    var infoDisplay = $('<p>').text(eventName[eventIndex] + " " + eventDate[eventIndex] + " " + eventTime[eventIndex]);
+    var infoDisplay = $('<p>').text(eventName[eventIndex] + " " + moment(eventDate[eventIndex]).format("MMMM Do YYYY") + " " + moment(eventTime[eventIndex], "HH:mm:ss").format("hh:mm a"));
     $('#moods').append(infoDisplay);
 
     var eventImage = $('<img>');
