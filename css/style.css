@@ -13,7 +13,7 @@
     opacity: 0.5;
 } 
 
-h3 {
+h3, #loginBtn  {
     margin-bottom: 0;
 }
 
